@@ -1,0 +1,56 @@
+
+<view class='body'>
+
+    <!-- hot product list start  -->
+    <view>
+        <view class='hot-header'>
+            <view class='title'>热门产品</view>
+            <view class='desc'>产品描述</view>
+        </view>
+        <view class="hot-list">
+
+            <view class='hot-list-item'>
+                <view class='hot-item' data-url="/pages/detail/detail?id=1" bindtap='bindViewTap'>
+                    <view>
+                        <image class='thumb' src='https://img.neisha.cc/2017/4/2/d1201cd3403d451bb1a8da510ea9b4fd.png@30p'></image>
+                    </view>
+                    <view class='product-title'>chap描述</view>
+                    <view class='product-price'>￥3233/t</view>
+                </view>
+                <view class='hot-item' data-url="/pages/detail/detail?id=1" bindtap='bindViewTap'>
+                    <view>
+                        <image class='thumb' src='https://img.neisha.cc/2017/5/4/288386b3eef94797abf1fa1c649f0eaa.png@30p'></image>
+                    </view>
+                    <view class='product-title'>chap描述</view>
+                    <view class='product-price'>￥3233/t</view>
+                </view>
+            </view>
+
+            <view class='hot-list-item'>
+                <view class='hot-item' data-url="/pages/detail/detail?id=1" bindtap='bindViewTap'>
+                    <view>
+                        <image class='thumb' src='https://img.neisha.cc/2016/12/9/81ccdfaba87249b29215e071a963f80c.jpg@30p'></image>
+                    </view>
+                    <view class='product-title'>chap描述</view>
+                    <view class='product-price'>￥3233/t</view>
+                </view>
+                <view class='hot-item' data-url="/pages/detail/detail?id=1" bindtap='bindViewTap'>
+                    <view>
+                        <image class='thumb' src='https://img.neisha.cc/2017/4/24/d9f95618b8954c73935b255feceb9d15.png@30p'></image>
+                    </view>
+                    <view class='product-title'>chap描述</view>
+                    <view class='product-price'>￥3233/t</view>
+                </view>
+            </view>
+
+        </view>
+
+    </view>
+    <!--/end  -->
+
+</view>
+
+<view class='footer'>
+    <view type="default" bindtap="calling">客服电话： (+86) 13650962253</view>
+    <view type="default" bindtap="calling">客服电话： (+86) 13729548928</view>  
+</view>

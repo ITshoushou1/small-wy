@@ -1,0 +1,168 @@
+page {
+    display: block;
+    min-height: 100%;
+    background: #f6f6f6;
+}
+
+.c-container {
+    background: #fff;
+    padding: 10rpx;
+    position: relative;
+    color: #47484a;
+    margin-bottom: 10rpx;
+}
+
+.c-address {
+    border-bottom: 1rpx solid #e2e2e2;
+    padding: 0rpx 1rpx 10rpx 0rpx;
+}
+
+.relet-title {
+    font-size: 30rpx;
+    color: #ff3000;
+    margin: 10rpx 0 20rpx 0;
+}
+
+.relet-desc {
+    width: 100%;
+    font-size: 25rpx;
+    color: #8c8c8c;
+    margin: 0 0 14rpx;
+    display: flex;
+}
+
+/* bottom cat  */
+
+/*下方购物车*/
+
+.cart {
+    display: -webkit-flex;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100rpx;
+    background: #fff;
+    z-index: 999999;
+}
+
+.cart .data {
+    flex: 1;
+    border-top:2rpx solid #eee;
+}
+
+.cart .data .total {
+    color: #f45044;
+    font-size: 36rpx;
+    line-height: 100rpx;
+    padding-left: 60rpx;
+}
+
+.cart button {
+    width: 200rpx;
+    height: 100%;
+    font-size: 30rpx;
+    background: #009aea;
+    color: #fff;
+    line-height: 100rpx;
+    border-radius: 0;
+}
+
+.cart button[disabled][type="default"], wx-button[disabled]:not([type]) {
+    color: #fff;
+    background-color: #333;
+}
+
+.carttxt {
+    padding: 0 20rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    border-bottom: 1px solid #d5d5d5;
+}
+
+.cartimg {
+    width: 30rpx;
+    height: 40rpx;
+    position: relative;
+    top: 8rpx;
+    margin-right: 3px;
+}
+
+/*/end  */
+
+.c-container .pro-time {
+    margin: 0;
+    font-size: 30rpx;
+    line-height: 40px;
+    border-bottom: 2rpx solid #f8f8f8;
+    padding: 0 20rpx;
+    color: #0a0a0a;
+    display: flex;
+}
+
+.c-container .order-item {
+    float: none;
+    clear: both;
+    width: 100%;
+    padding: 4rpx;
+    position: relative;
+    overflow: hidden;
+    
+}
+
+.order-item .thumb {
+    width: 300rpx;
+    float: left;
+    padding: 10rpx;
+    border: 1rpx solid #e2e2e2;
+}
+
+.order-item .thumb image {
+    width: 100%;
+    height: 250rpx;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.order-item-info {
+    padding: 10rpx 10rpx 10rpx 330rpx;
+    color: #858687;
+}
+
+.p-title {
+    font-size: 30rpx;
+    color: #0a0a0a;
+    height: 200rpx;
+}
+
+.p-price-detail {
+    font-size: 30rpx;
+    display: flex;
+    padding-top: 40rpx;
+}
+
+.p-price-detail .p-price {
+    color: #23abec;
+    font-size: 30rpx;
+    padding-right: 100rpx;
+}
+
+.line-tab {
+    display: flex;
+}
+
+.line-left {
+    display: flex;
+    width: 70%;
+}
+
+.line-right {
+    display: flex;
+    width: 20%;
+}

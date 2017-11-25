@@ -1,0 +1,120 @@
+/* pages/personal/personal.wxss */
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+} 
+
+.userinfo {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 200rpx;
+  align-items: left;
+  background: #f8485e;
+}
+.account-bg {
+  width: 100%;
+  /* height: 150rpx; */
+}
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 36rpx;
+  border-radius: 50%;
+  border:2px solid #E4E4E4;
+}
+.userinfo-nickname {
+  font-size: 14px;
+  color: #fff;
+  margin-top: 60rpx;
+  padding-left: 6rpx;
+}
+
+/*navbar  */
+.navbar {
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid #eee;
+}
+.navbar-item {
+    flex: 1.0;
+    text-align: center;
+    font-size: 14px;
+    color: #999;
+    margin-bottom: -1px;
+}
+.navbar-text {
+    display: block;
+    padding: 10px;
+    margin: auto;
+}
+.navbar-text.active {
+    border-bottom: 1px solid #009aea;
+    color: #000;
+    font-weight: bold;
+}
+.hidden {
+    display: none;
+}
+
+/*条目  */
+.list-container {
+  width: 100%;
+}
+.list-item {
+  width: 96%;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1rpx solid #eeeeee;
+  margin: 0 15rpx; 
+  padding: 20rpx 0 15rpx;
+}
+.thumbnail{
+  width:92px;
+  height:92px;
+  margin-right: 16rpx;
+   border-radius: 20rpx;
+  -webkit-box-shadow:0 0 10px #ccc;  
+  -moz-box-shadow:0 0 10px #ccc;  
+  box-shadow:0 0 10px #ccc; 
+}
+.list-body{
+  width:67%;
+  position:relative;
+}
+.title{
+  font-size:16px;
+  font-weight:bold;
+  color:#333;
+}
+.category{
+  margin-top: 10rpx; 
+  font-size: 14px;
+  color: #999;
+}
+.underpart{
+  position:absolute;
+  bottom:0;
+  width:100%;
+}
+.oldprice{
+  text-decoration:line-through;
+  font-size:14px;
+  color:#999;
+}
+.newprice{
+  font-size:14px;
+  color:#f8485e;
+}
+.people{
+  font-size:12px;
+  color:#999;
+  position:absolute;
+  right:0;
+  bottom:0;
+}
+/*条目 end  */

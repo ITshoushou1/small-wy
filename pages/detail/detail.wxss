@@ -1,0 +1,223 @@
+/* pages/detail/detail.wxss */
+
+page {
+    display: block;
+    min-height: 100%;
+    background: #f6f6f6;
+}
+
+.swiper {
+    width: 100%;
+    height: 450rpx;
+}
+
+/*navbar  */
+
+.navbar {
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid #eee;
+}
+
+.navbar-item {
+    flex: 1.0;
+    text-align: center;
+    font-size: 14px;
+    color: #999;
+    margin-bottom: -1px;
+}
+
+.navbar-text {
+    display: block;
+    padding: 10px;
+    margin: auto;
+}
+
+.navbar-text.active {
+    border-bottom: 1px solid #009aea;
+    color: #000;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+.p-container {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #fff;
+    height: 100%;
+    margin-top: 20rpx;
+}
+
+/* bottom cat  */
+
+/*下方购物车*/
+
+.cart {
+    display: -webkit-flex;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100rpx;
+    background: #fff;
+    z-index: 999999;
+}
+
+.cart .data {
+    flex: 1;
+    border-top:2rpx solid #eee;
+}
+
+.cart .data .total {
+    color: #f45044;
+    font-size: 36rpx;
+    line-height: 100rpx;
+    padding-left: 60rpx;
+}
+
+.cart button {
+    width: 200rpx;
+    height: 100%;
+    font-size: 30rpx;
+    background: #009aea;
+    color: #fff;
+    line-height: 100rpx;
+    border-radius: 0;
+}
+
+.cart button[disabled][type="default"], wx-button[disabled]:not([type]) {
+    color: #fff;
+    background-color: #333;
+}
+
+.carttxt {
+    padding: 0 20rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    border-bottom: 1px solid #d5d5d5;
+}
+
+.cartimg {
+    width: 30rpx;
+    height: 40rpx;
+    position: relative;
+    top: 8rpx;
+    margin-right: 3px;
+}
+
+/* product select  */
+
+.p-content {
+    margin-right: 2px;
+    margin-left: 0px;
+    justify-content: flex-start;
+    -webkit-box-pack: justify;
+    box-sizing: border-box;
+    padding: 4px 4px 4px 0;
+    margin: 10px;
+}
+
+.p-name {
+    width: 100%;
+    color: #323232;
+    font-size: 16px;
+    margin-top: 20rpx;
+    font-weight: bold;
+    display: flex;
+}
+
+.p-price {
+    margin: 10px 0rpx 10rpx 0rpx;
+}
+
+.per-price {
+    display: flex;
+}
+
+.per-price .price {
+    color: red;
+    margin-right: 10rpx;
+    font-size: 26rpx;
+    width: 24%;
+    display: flex;
+}
+
+.per-price .price .b {
+    font-size: 19px;
+    font-weight: normal;
+}
+
+.per-price .desc {
+    font-size: 24rpx;
+    color: #7b7c7d;
+    
+}
+
+.sub-total {
+    color: #393939;
+    font-size: 26rpx;
+    margin-top: 20rpx;
+    display: flex;
+}
+
+.sub-total .p-text {
+    margin-right: 14rpx;
+}
+
+.sub-total .p-red {
+    margin-left: 20rpx;
+    color: red;
+}
+
+.sub-total-price {
+    font-size: 30rpx;
+    color: #23ABEC;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background: #f8f8f8;
+    margin-left: -2.5%;
+}
+
+.p-period {
+    margin: 10px 0rpx 10rpx 0rpx;
+}
+
+.p-period .tips {
+    font-size: 26rpx;
+    padding-bottom: 4rpx;
+}
+
+.p-radio {
+    display: flex;
+}
+
+.month {
+    width: 16.6%;
+}
+
+.p-radio .month-text {
+    border: 1px solid #23ABEC;
+    color: #505050;
+    font-size: 12px;
+    line-height: 36px;
+    cursor: pointer;
+    text-align: center;
+    height: 37px;
+    overflow: hidden;
+    border-radius: 6px;
+    font-weight: bold;
+    box-sizing: border-box;
+    margin: 4rpx 14rpx 4rpx 0rpx;
+}
+
+.p-radio .active {
+	background: #23ABEC;
+    color: #fff;
+}
+
+/*/end  */

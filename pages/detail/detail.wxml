@@ -1,0 +1,93 @@
+<!--pages/detail/detail.wxml-->
+ <swiper class='swiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="bindchange">
+    <block wx:for="{{imgUrls}}" wx:for-item="item" wx:key="item.id">
+        <swiper-item>
+            <image src="{{item}}" class="slide-image" indload="imageLoad" style="height: {{imgheight}}rpx;width:{{imgwidth}}rpx;" />
+        </swiper-item>
+    </block>
+</swiper> 
+
+<view class='p-container'>
+
+    <view class='p-content'>
+        <view class='p-name'>{{product.product_title}}</view>
+
+        <view class='p-price'>
+
+            <view class='per-price'>
+                <view class='price'>￥
+                    <view class='b'>19.1</view> / 月</view>
+                <view class='desc'>产品名称产品fsdfsd大幅度随风倒</view>
+            </view>
+
+            <view class='sub-total'>
+                <view class='p-text'>12个个 </view>
+                <view class='sub-total-text'> 小计： </view>
+                <view class='sub-total-price'>￥3333</view>
+                <view class='p-red'>价格提示与反对反对水水</view>
+            </view>
+
+        </view>
+        <view class='line'></view>
+        <view class='p-period'>
+            <view class='tips'>提示：</view>
+            <view class='p-radio'>
+                
+                <view class='month' wx:for="{{rent_period}}" wx:for-item="period" wx:key="key" wx:for-index="idx" data-idx="{{idx}}">
+                    
+                    <view class="month-text {{current_period == period.value ? 'active' : ''}}" data-period="{{period.value}}" bindtap="bindChangePeriod">{{period.tab_title}}</view>
+
+                </view>
+            
+            </view>
+            <view class='tips p-red'>fsdfsd</view>
+        </view>
+    </view>
+
+</view>
+
+<view class='p-container'>
+    <view class="navbar">
+        <view class="navbar-item" wx:for="{{navbar}}" wx:for-index="idx" wx:key="key" data-idx="{{idx}}" bindtap="swichNav">
+            <text class="navbar-text {{currentNavbar==idx ? 'active' : ''}}">{{item}}</text>
+        </view>
+    </view>
+
+    <!-- 流程 -->
+    <scroll-view class="p-container {{currentNavbar==0 ? '' : 'hidden'}}" scroll-y="true" bindscrolltolower="pullUpLoad" style="height: {{systemInfo.windowHeight}}px;">
+        <view>流程</view>
+        <view>流程</view>
+        <view>流程</view>
+        <view>流程</view><view>流程</view><view>流程</view><view>流程</view><view>流程</view><view>流程</view><view>流程</view>
+
+        <view></view>
+    </scroll-view>
+
+    <!-- 详情 -->
+    <scroll-view class="p-container {{currentNavbar==1 ? '' : 'hidden'}}" style="height: {{systemInfo.windowHeight}}px;" scroll-y="true" bindscrolltolower="pullUpLoadLatest">
+        <view>详情</view>
+    </scroll-view>
+
+    <!-- 评论 -->
+    <scroll-view class="p-container {{currentNavbar==2 ? '' : 'hidden'}}" style="height: {{systemInfo.windowHeight}}px;" scroll-y="true" bindscrolltolower="pullUpLoadLatest">
+        <view>评论</view>
+    </scroll-view>
+
+
+</view>
+
+<view style='height:120rpx;'></view>
+
+<view class="cart">
+    
+    <view class="data">
+        <view class="total">￥455</view>
+    </view>
+
+    <form bindsubmit="formSubmit" report-submit="true">
+        <button formType="submit">
+            立即预订
+        </button>
+    </form>
+
+</view>

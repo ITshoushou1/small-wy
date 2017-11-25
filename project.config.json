@@ -1,0 +1,53 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.6.6",
+	"appid": "wx593632296b023ec7",
+	"projectname": "%E6%9C%AA%E5%A4%AE",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 2,
+			"list": [
+				{
+					"id": -1,
+					"name": "用户中心",
+					"pathName": "pages/user/user",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "商品详情页",
+					"pathName": "pages/detail/detail",
+					"query": "id=1"
+				},
+				{
+					"id": 2,
+					"name": "结算页",
+					"pathName": "pages/checkout/checkout",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "列表页",
+					"pathName": "pages/list/list",
+					"query": "id=1"
+				}
+			]
+		}
+	}
+}

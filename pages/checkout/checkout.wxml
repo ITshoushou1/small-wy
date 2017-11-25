@@ -1,0 +1,99 @@
+<!--index.wxml-->
+<view class="c-container">
+
+    <view class='c-address'>
+        收货地址
+    </view>
+
+    <view wx:if="{{!hasAddress}}">
+        <view class='choose-address' bindtap="bindUserAddress" open-type='bindUserAddress'>选择收货地址</view>
+    </view>
+
+    <view wx:else bindtap="bindUserAddress" open-type='bindUserAddress'>
+
+        <view>{{address.userName}} {{address.telNumber}} </view>
+        <view></view>
+        <view>{{address.provinceName}}{{address.cityName}} {{address.detailInfo}}</view>
+        >
+    </view>
+
+</view>
+
+<view class="c-container">
+
+    <view class='relet-title'>
+        续租月租金按此单月租金计算：
+    </view>
+
+    <view class='relet-desc'>
+        续租，如因合同到期用户还想继续使用甲方的产品，租金的计算是以租期超过当前档期则使用下一档期的租金。
+    </view>
+
+</view>
+
+<view class="c-container">
+
+    <view class='pro-time'>
+        <view class='left'>续租月租金按此单月租金计算</view>
+        <view class='right'>12个啊</view>
+    </view>
+
+    <view class='order-item'>
+
+        <view class='thumb'>
+            <image src='http://imgcdn.zhiteer.com/images/products/e3bcd0348d9a07bb695b19d7297a3177.jpeg?imageView2/0/w/300'></image>
+        </view>
+
+        <view class='order-item-info'>
+
+            <view class='p-title'> 产品题目aaa反反复复产品题目是否实施试试</view>
+
+            <view class='p-price-detail'>
+                <view class='p-price'>￥33</view>
+                <view> x 1</view>
+            </view>
+        </view>
+
+    </view>
+
+</view>
+
+<view class="c-container">
+
+    <view class='line-tab'>
+        <view class='line-left'>租金</view>
+        <view class='line-right'>￥500</view>
+    </view>
+
+    <view class='line-tab'>
+        <view class='line-left'>押金</view>
+        <view class='line-right'>￥500</view>
+    </view>
+
+    <view class='line-tab'>
+        <view class='line-left'>总计</view>
+        <view class='line-right'>￥123232</view>
+    </view>
+
+</view>
+
+<view class="c-container">
+
+    <view>租客留言</view>
+
+</view>
+
+<view style='height:120rpx;'></view>
+
+<view class="cart">
+
+    <view class="data">
+        <view class="total">￥455</view>
+    </view>
+
+    <form bindsubmit="formSubmit" report-submit="true">
+        <button formType="submit" bindtap="pay">
+            立即预订
+        </button>
+    </form>
+</view>

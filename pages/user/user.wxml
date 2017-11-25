@@ -1,0 +1,88 @@
+<!--pages/personal/personal.wxml-->
+<view class="container">
+    <view class="userinfo" style='background: url({{userInfo.avatarUrl}}) no-repeat left top;'>
+        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+        <text class="userinfo-nickname">欢迎回来，{{userInfo.nickName}}</text>
+    </view>
+
+    <view class="navbar">
+        <view class="navbar-item" wx:for="{{navbar}}" wx:for-index="idx" wx:key="key" data-idx="{{idx}}" bindtap="swichNav">
+            <text class="navbar-text {{currentNavbar==idx ? 'active' : ''}}">{{item}}</text>
+        </view>
+    </view>
+    <!-- 全部 -->
+    <scroll-view class="all-container {{currentNavbar==0 ? '' : 'hidden'}}" scroll-y="true" bindscrolltolower="pullUpLoad" style="height: {{systemInfo.windowHeight}}px;">
+        <view wx:if="{{testList == false}}" style='text-align:center'>
+            <image style="width:292px;background-color: #fff;margin:200rpx auto 0;" mode="aspectFit" src="{{nosrc}}"></image>
+        </view>
+        <view wx:else>
+            <view class="list-container" wx:for="{{testList}}" wx:key="key" wx:for-item="test">
+                <navigator url="/pages/detail/detail?id={{test.question.id}}">
+                    <view class='list-item'>
+                        <image class="thumbnail" src="{{test.question.thumb}}"></image>
+                        <view class='list-body'>
+                            <view class='title'>{{test.question.title}}</view>
+                            <view class='category'>{{test.question.intro}}</view>
+                            <view class='underpart'>
+                                <text class='oldprice'>￥{{test.question.old_price}}</text>
+                                <text class='newprice' decode="true">&nbsp;￥{{test.question.price}}</text>
+                                <text class='people'>{{test.question.tested}}人已测</text>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+    </scroll-view>
+
+    <!-- 未完成 -->
+    <scroll-view class="unfinished-container {{currentNavbar==1 ? '' : 'hidden'}}" style="height: {{systemInfo.windowHeight}}px;" scroll-y="true" bindscrolltolower="pullUpLoadLatest">
+        <view wx:if="{{testList == false}}" style='text-align:center'>
+            <image style="width:292px;background-color: #fff;margin:200rpx auto 0;" mode="aspectFit" src="{{nosrc}}"></image>
+        </view>
+        <view wx:else>
+            <view class="list-container" wx:for="{{testList}}" wx:key="key" wx:for-item="test">
+                <navigator url="/pages/detail/detail?id={{test.question.id}}">
+                    <view class='list-item'>
+                        <image class="thumbnail" src="{{test.question.thumb}}"></image>
+                        <view class='list-body'>
+                            <view class='title'>{{test.question.title}}</view>
+                            <view class='category'>{{test.question.intro}}</view>
+                            <view class='underpart'>
+                                <text class='oldprice'>￥{{test.question.old_price}}</text>
+                                <text class='newprice' decode="true">&nbsp;￥{{test.question.price}}</text>
+                                <text class='people'>{{test.question.tested}}人已测</text>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+    </scroll-view>
+
+    <!-- 已完成 -->
+    <scroll-view class="finished-container {{currentNavbar==2 ? '' : 'hidden'}}" style="height: {{systemInfo.windowHeight}}px;" scroll-y="true" bindscrolltolower="pullUpLoadLatest">
+        <view wx:if="{{testList == false}}" style='text-align:center'>
+            <image style="width:292px;background-color: #fff;margin:200rpx auto 0;" mode="aspectFit" src="{{nosrc}}"></image>
+        </view>
+        <view wx:else>
+            <view class="list-container" wx:for="{{testList}}" wx:key="key" wx:for-item="test">
+                <navigator url="/pages/detail/detail?id={{test.question.id}}">
+                    <view class='list-item'>
+                        <image class="thumbnail" src="{{test.question.thumb}}"></image>
+                        <view class='list-body'>
+                            <view class='title'>{{test.question.title}}</view>
+                            <view class='category'>{{test.question.intro}}</view>
+                            <view class='underpart'>
+                                <text class='oldprice'>￥{{test.question.ole_price}}</text>
+                                <text class='newprice' decode="true">&nbsp;￥{{test.question.price}}</text>
+                                <text class='people'>{{test.question.tested}}人已测</text>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+    </scroll-view>
+
+</view>
