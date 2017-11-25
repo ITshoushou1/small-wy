@@ -8,7 +8,8 @@ Page({
         address: [],
         test:'',
         goodsList: [
-            {},
+            { 'pic':'http://imgcdn.zhiteer.com/images/products/e3bcd0348d9a07bb695b19d7297a3177.jpeg?imageView2/0/w/300'},
+            
         ]
     },
     //事件处理函数

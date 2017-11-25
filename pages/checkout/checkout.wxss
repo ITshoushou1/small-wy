@@ -129,7 +129,7 @@ form{
 /*end  */
 
 .relet-title {
-    font-size: 30rpx;
+    font-size: 28rpx;
     color: #ff3000;
     margin: 10rpx 0 20rpx 0;
 }
