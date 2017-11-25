@@ -7,6 +7,9 @@ Page({
         hasAddress: false,
         address: [],
         test:'',
+        goodsList: [
+            {},
+        ]
     },
     //事件处理函数
     bindViewTap: function () {

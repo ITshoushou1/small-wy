@@ -2,11 +2,11 @@
 <view style='height:10rpx;'></view>
 <view class="c-container">
 
-    <view class="address-box" style='background: url(../../images/arrow-right.png) no-repeat 705rpx center,url(../../images/addr-line.png) no-repeat center bottom;background-size: 16rpx auto, 750rpx auto;'>
+    <view class="address-box" style='background: url(images/arrow-right.png) no-repeat 705rpx center,url(images/addr-line.png) no-repeat center bottom;background-size: 16rpx auto, 750rpx auto;'>
         <view wx:if="{{!hasAddress}}" class="add-address">
-            <view class="title" bindtap="bindUserAddress" style='background: url(../../images/ico-add-addr.png) no-repeat left center; background-size: 60rpx auto;'>选择收货地址</view>
+            <view class="title" bindtap="bindUserAddress" style='background: url(images/ico-add-addr.png) no-repeat left center; background-size: 60rpx auto;'>选择收货地址</view>
         </view>
-        <view wx:else class="show-address" bindtap="bindUserAddress" style='background: url(../../images/ico-addr.png) no-repeat 30rpx 35rpx;background-size: 30rpx auto;'>
+        <view wx:else class="show-address" bindtap="bindUserAddress" style='background: url(images/ico-addr.png) no-repeat 30rpx 35rpx;background-size: 30rpx auto;'>
             <view class="name-tel">{{address.userName}} {{address.telNumber}}</view>
             <view class="addr-text">{{address.provinceName}}{{address.cityName}} {{address.detailInfo}}</view>
         </view>
@@ -27,6 +27,25 @@
 </view>
 
 <view class="c-container">
+
+    <view class="goods-list">
+        <view class="list-title">商品列表</view>
+        <view class="a-goods" wx:for-items="{{goodsList}}" wx:key="{{index}}">
+            <view class="img-box">
+                <image src="{{item.pic}}" class="img" />
+            </view>
+            <view class="text-box">
+                <view class="arow arow01">
+                    <view class="goods-name">{{item.name}}</view>
+                    <view class="goods-price">¥ {{item.price}}</view>
+                </view>
+                <view class="arow">
+                    <view class="goods-label">{{item.label}}</view>
+                    <view class="goods-num">x {{item.number}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
 
     <view class='pro-time'>
         <view class='left'>续租月租金按此单月租金计算</view>
