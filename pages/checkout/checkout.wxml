@@ -1,20 +1,15 @@
 <!--index.wxml-->
+<view style='height:10rpx;'></view>
 <view class="c-container">
 
-    <view class='c-address'>
-        收货地址
-    </view>
-
-    <view wx:if="{{!hasAddress}}">
-        <view class='choose-address' bindtap="bindUserAddress" open-type='bindUserAddress'>选择收货地址</view>
-    </view>
-
-    <view wx:else bindtap="bindUserAddress" open-type='bindUserAddress'>
-
-        <view>{{address.userName}} {{address.telNumber}} </view>
-        <view></view>
-        <view>{{address.provinceName}}{{address.cityName}} {{address.detailInfo}}</view>
-        >
+    <view class="address-box" style='background: url(../../images/arrow-right.png) no-repeat 705rpx center,url(../../images/addr-line.png) no-repeat center bottom;background-size: 16rpx auto, 750rpx auto;'>
+        <view wx:if="{{!hasAddress}}" class="add-address">
+            <view class="title" bindtap="bindUserAddress" style='background: url(../../images/ico-add-addr.png) no-repeat left center; background-size: 60rpx auto;'>选择收货地址</view>
+        </view>
+        <view wx:else class="show-address" bindtap="bindUserAddress" style='background: url(../../images/ico-addr.png) no-repeat 30rpx 35rpx;background-size: 30rpx auto;'>
+            <view class="name-tel">{{address.userName}} {{address.telNumber}}</view>
+            <view class="addr-text">{{address.provinceName}}{{address.cityName}} {{address.detailInfo}}</view>
+        </view>
     </view>
 
 </view>

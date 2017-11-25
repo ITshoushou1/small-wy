@@ -12,10 +12,46 @@ page {
     margin-bottom: 10rpx;
 }
 
-.c-address {
-    border-bottom: 1rpx solid #e2e2e2;
-    padding: 0rpx 1rpx 10rpx 0rpx;
+/*address  */
+
+.address-box {
+    width: 100%;
+    
+    background-color: #fff;
+    margin: 20rpx 0;
 }
+
+.add-addres {
+    width: 100%;
+}
+
+.add-address .title {
+    font-size: 28rpx;
+    color: #000;
+    margin-left: 30rpx;
+    padding: 40rpx 0 40rpx 90rpx;
+}
+
+.show-address {
+    width: 664rpx;
+    box-sizing: border-box;
+    padding-left: 100rpx;
+}
+
+.show-address .name-tel {
+    font-size: 28rpx;
+    color: #000;
+    padding: 30rpx 0 20rpx 0;
+}
+
+.show-address .addr-text {
+    font-size: 24rpx;
+    color: #888;
+    padding-bottom: 34rpx;
+    line-height: 36rpx;
+}
+
+/*end  */
 
 .relet-title {
     font-size: 30rpx;
@@ -48,7 +84,7 @@ page {
 
 .cart .data {
     flex: 1;
-    border-top:2rpx solid #eee;
+    border-top: 2rpx solid #eee;
 }
 
 .cart .data .total {
@@ -107,7 +143,6 @@ page {
     padding: 4rpx;
     position: relative;
     overflow: hidden;
-    
 }
 
 .order-item .thumb {
