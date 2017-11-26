@@ -8,7 +8,11 @@ Page({
         address: [],
         test:'',
         goodsList: [
-            { 'pic':'http://imgcdn.zhiteer.com/images/products/e3bcd0348d9a07bb695b19d7297a3177.jpeg?imageView2/0/w/300'},
+            {
+                 'product_title':'方法大师傅大师傅士大夫232134552士大夫发射点犯得上犯得上反对大师傅大师傅士大夫顶顶顶', 
+                 'product_price': '19.0',
+                 'rent_period': 12,
+                 'pic':'http://imgcdn.zhiteer.com/images/products/e3bcd0348d9a07bb695b19d7297a3177.jpeg?imageView2/0/w/300'},
             
         ]
     },

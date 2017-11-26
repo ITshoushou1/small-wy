@@ -29,19 +29,21 @@
 <view class="c-container">
 
     <view class="goods-list">
-        <view class="list-title">商品列表</view>
+        <view class="list-title">
+            <view class='t-left'>租期从签订合同开始计算</view>
+            <view class='t-right'>共12个月</view>
+        </view>
         <view class="a-goods" wx:for-items="{{goodsList}}" wx:key="{{index}}">
             <view class="img-box">
                 <image src="{{item.pic}}" class="img" />
             </view>
             <view class="text-box">
                 <view class="arow arow01">
-                    <view class="goods-name">{{item.name}}</view>
-                    <view class="goods-price">¥ {{item.price}}</view>
+                    <view class="goods-name">{{item.product_title}}</view>
                 </view>
                 <view class="arow">
-                    <view class="goods-label">{{item.label}}</view>
-                    <view class="goods-num">x {{item.number}}</view>
+                    <view class="goods-label">￥19 / 月{{item.label}}</view>
+                    <view class="goods-num">x {{item.number}}1</view>
                 </view>
             </view>
         </view>
@@ -63,7 +65,7 @@
         <view class='line-right'>￥500</view>
     </view>
 
-    <view class='line-tab'>
+    <view class='line-tab sub-total'>
         <view class='line-left'>总计</view>
         <view class='line-right'>￥123232</view>
     </view>
