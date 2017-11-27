@@ -30,6 +30,21 @@ Page({
 
     bindUserAddress: function () {
         var that = this;
+
+        // 如果已经点击了 则返回
+        if (that.data.isCheckButton) {
+            return false;
+        }
+
+        that.setData({
+            isCheckButton: true
+        });
+        setTimeout(function () {
+            that.setData({
+                isCheckButton: false
+            });
+        }, 2000);
+
         if (wx.chooseAddress) {
             wx.chooseAddress({
                 success: function (res) {
@@ -90,7 +105,7 @@ Page({
           that.setData({
             isCheckButton: false
           });
-        }, 3000);
+        }, 2000);
     
         console.log(that.data.address)
 
@@ -114,6 +129,12 @@ Page({
                 } else {
                     wx.showToast({
                         title: '下单成功！',
+                    })
+                    wx.navigateTo({
+                        url: '/pages/success/success',
+                        success: function(res) {},
+                        fail: function(res) {},
+                        complete: function(res) {},
                     })
                 }
             }

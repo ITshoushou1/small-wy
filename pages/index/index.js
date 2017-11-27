@@ -18,10 +18,10 @@ Page({
         imgwidth: 750,
         imgheight: 500,
         nav: [
-            { "navigator": "/pages/list/list?id=1", "title": "文本1", "imgurl": "https://img.neisha.cc/2017/5/13/dffc2d6bbf3645d9a4769f6edd2dd39d.jpg" },
-            { "navigator": "/pages/list/list?id=1ffff", "title": "文本2", "imgurl": "https://img.neisha.cc/2017/5/13/82cbe37e3a74469881eb3005da12d6e2.jpg" },
-            { "navigator": "/pages/list/list?id=1", "title": "文本3", "imgurl": "https://img.neisha.cc/2017/5/13/dffc2d6bbf3645d9a4769f6edd2dd39d.jpg" },
-            { "navigator": "/pages/list/list?id=1", "title": "文本4", "imgurl": "https://img.neisha.cc/2017/5/13/9c2c399b68b24d54a9211b9da02a14f9.jpg" },
+            { "navigator": "/pages/list/list?id=1", "title": "冰箱", "imgurl": "https://img.neisha.cc/2017/5/13/dffc2d6bbf3645d9a4769f6edd2dd39d.jpg" },
+            { "navigator": "/pages/list/list?id=3", "title": "洗衣机", "imgurl": "https://img.neisha.cc/2017/5/13/9c2c399b68b24d54a9211b9da02a14f9.jpg" },
+            { "navigator": "/pages/list/list?id=2", "title": "智能产品", "imgurl": "https://img.neisha.cc/2017/5/13/82cbe37e3a74469881eb3005da12d6e2.jpg" },
+
         ],
         plist: {}, 
     },
