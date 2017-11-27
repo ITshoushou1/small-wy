@@ -39,7 +39,7 @@
 					"id": 2,
 					"name": "结算页",
 					"pathName": "pages/checkout/checkout",
-					"query": "id=1"
+					"query": "rent_period=5&product_sn=eqwewq"
 				},
 				{
 					"id": -1,

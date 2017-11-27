@@ -1,6 +1,6 @@
 <!--pages/detail/detail.wxml-->
  <swiper class='swiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="bindchange">
-    <block wx:for="{{imgUrls}}" wx:for-item="item" wx:key="item.id">
+    <block wx:for="{{product.gallerys}}" wx:for-item="item" wx:key="item.id">
         <swiper-item>
             <image src="{{item}}" class="slide-image" indload="imageLoad" style="height: {{imgheight}}rpx;width:{{imgwidth}}rpx;" />
         </swiper-item>
@@ -17,20 +17,20 @@
             <view class='per-price'>
                 <view class='price'>￥
                     <view class='b'>19.1</view> / 月</view>
-                <view class='desc'>产品名称产品fsdfsd大幅度随风倒</view>
+                <view class='desc'>租期满12个月，租金低至 19元/月</view>
             </view>
 
             <view class='sub-total'>
                 <view class='p-text'>12个个 </view>
                 <view class='sub-total-text'> 小计： </view>
                 <view class='sub-total-price'>￥3333</view>
-                <view class='p-red'>价格提示与反对反对水水</view>
+                <view class='p-red'> 租期开始日期从设备签收日起 </view>
             </view>
 
         </view>
         <view class='line'></view>
         <view class='p-period'>
-            <view class='tips'>提示：</view>
+            <view class='tips'>请选择租期：</view>
             <view class='p-radio'>
                 
                 <view class='month' wx:for="{{rent_period}}" wx:for-item="period" wx:key="key" wx:for-index="idx" data-idx="{{idx}}">

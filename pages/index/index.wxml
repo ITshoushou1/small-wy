@@ -1,7 +1,7 @@
 <swiper class='swiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="bindchange">
-    <block wx:for="{{imgUrls}}" wx:for-item="item" wx:key="item.id">
-        <swiper-item data-url="/pages/detail/detail?id=1" bindtap='bindViewTap'>
-            <image src="{{item}}" class="slide-image" indload="imageLoad" style="height: {{imgheight}}rpx;width:{{imgwidth}}rpx;" />
+    <block wx:for="{{slideList}}" wx:for-item="slide" wx:key="item.id">
+        <swiper-item data-url="/pages/detail/detail?product_sn={{slide.product_sn}}" bindtap='bindViewTap'>
+            <image src="{{slide.pic}}" class="slide-image" indload="imageLoad" style="height: {{imgheight}}rpx;width:{{imgwidth}}rpx;" />
         </swiper-item>
     </block>
 </swiper>
@@ -18,29 +18,30 @@
     </view>
 
     <view>
-        <!-- list start -->
         <view class="lists-box">
-            <navigator wx:for="{{list}}" wx:key="" class="item-box" url="/pages/detail/detail?id={{item.courseId}}">
+            <navigator wx:for="{{plist}}" wx:key="" class="item-box" url="/pages/detail/detail?product_sn={{item.product_sn}}">
                 <view class="item-img">
-                    <image src="{{item.avatar}}" mode="widthFix"></image>
+                    <image src="{{item.thumb}}"></image>
                 </view>
-                <text class="item-title">{{item.title}}</text>
-                <text class="item-content">上课时间：{{item.startTime}}<text class="item-content-right">课时：{{item.period}}</text></text>
+                <text class="item-title">{{item.product_title}}</text>
+                <text class="item-content">
+                    <text class="item-content-right">
+                    租用{{item.rent_month}}个{{item.rent_type_name}}，租金低至 ￥{{item.rent_price_per_month}}元
+                    </text>
+                </text>
 
                 <view class="item-btm">
                     <view class="item-buy-people">
                         <view></view>
                         立即预订
                     </view>
-                    <view class="item-price">¥{{item.price}}</view>
+                    <view class="item-price">¥ {{item.rent_price_per_month}}</view>
                 </view>
             </navigator>
         </view>
-        <!-- / list end -->
 
     </view>
 
-    <!-- hot product list start  -->
     <view>
         <view class='hot-header'>
             <view class='title'>热门产品</view>
@@ -48,48 +49,21 @@
         </view>
         <view class="hot-list">
 
-            <view class='hot-list-item'>
-                <view class='hot-item' data-url="/pages/detail/detail?id=1" bindtap='bindViewTap'>
+            <view wx:for="{{hotList}}" wx:key='key' wx:for-index="idx" wx:for-item="lists" class='hot-list-item'>
+                <view wx:for="{{lists}}" wx:key='k' wx:for-index="idi" wx:for-item="hot" class='hot-item' data-url="/pages/detail/detail?product_sn={{hot.product_sn}}" bindtap='bindViewTap'>
                     <view>
-                        <image class='thumb' src='https://img.neisha.cc/2017/4/2/d1201cd3403d451bb1a8da510ea9b4fd.png@30p'></image>
+                        <image class='thumb' src='{{hot.thumb}}'></image>
                     </view>
-                    <view class='product-title'>chap描述</view>
-                    <view class='product-price'>￥3233/t</view>
-                </view>
-                <view class='hot-item' data-url="/pages/detail/detail?id=1" bindtap='bindViewTap'>
-                    <view>
-                        <image class='thumb' src='https://img.neisha.cc/2017/5/4/288386b3eef94797abf1fa1c649f0eaa.png@30p'></image>
-                    </view>
-                    <view class='product-title'>chap描述</view>
-                    <view class='product-price'>￥3233/t</view>
+                    <view class='product-title'>{{hot.product_title}}</view>
+                    <view class='product-price'>￥{{hot.rent_price_per_month}} / {{hot.rent_type_name}}</view>
                 </view>
             </view>
-
-            <view class='hot-list-item'>
-                <view class='hot-item' data-url="/pages/detail/detail?id=1" bindtap='bindViewTap'>
-                    <view>
-                        <image class='thumb' src='https://img.neisha.cc/2016/12/9/81ccdfaba87249b29215e071a963f80c.jpg@30p'></image>
-                    </view>
-                    <view class='product-title'>chap描述</view>
-                    <view class='product-price'>￥3233/t</view>
-                </view>
-                <view class='hot-item' data-url="/pages/detail/detail?id=1" bindtap='bindViewTap'>
-                    <view>
-                        <image class='thumb' src='https://img.neisha.cc/2017/4/24/d9f95618b8954c73935b255feceb9d15.png@30p'></image>
-                    </view>
-                    <view class='product-title'>chap描述</view>
-                    <view class='product-price'>￥3233/t</view>
-                </view>
-            </view>
-
         </view>
-
     </view>
-    <!--/end  -->
 
 </view>
 
 <view class='footer'>
-    <view type="default" bindtap="calling">客服电话： (+86) 13650962253</view>
-    <view type="default" bindtap="calling">客服电话： (+86) 13729548928</view>  
+    <view type="default" bindtap="calling">客服电话： (+86) {{info.tel.one}}</view>
+    <view type="default" bindtap="calling">客服电话： (+86) {{info.tel.two}}</view>
 </view>

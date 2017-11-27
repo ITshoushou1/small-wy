@@ -289,3 +289,10 @@ page {
     display: flex;
     width: 20%;
 }
+
+.footer {
+    text-align: center;
+    font-size: 26rpx;
+    padding: 28rpx 0 24rpx;
+    color: #525252;
+}

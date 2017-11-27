@@ -10,6 +10,7 @@ Page({
             'https://img.neisha.cc/2017/11/20/34ff34e7410c4da3a2081a16a21394cb.jpg',
             'https://img.neisha.cc/2017/11/20/075bb8af5743408ba8344e56769baa62.jpg'
         ],
+
         indicatorDots: true,
         autoplay: false,
         interval: 5000,
@@ -23,6 +24,7 @@ Page({
         navbar: ['流程', '商品详情', '用户评论'],
         currentNavbar: 0,
 
+        product_sn: '',
         product: {},
 
         rent_period: [],
@@ -86,11 +88,32 @@ Page({
      */
     onLoad: function (options) {
 
+        var that = this;
+
+        this.setData({
+            product_sn: options.product_sn
+        })
+
+        console.log(options.product_sn)
+
         var product = {
             product_sn: 'sefsgsdfsdfsd',
             product_title: "商品商品发士大夫士大夫大师傅士大夫士大夫",
             select_period: 5
         }
+
+        wx.request({
+            url: 'https://m.zhiteer.com/api/product/detail',
+            data: {
+                product_sn: options.product_sn
+            },
+            success: function(res) {
+                console.log(res.data.data)
+                that.setData({
+                    product:res.data.data.info
+                })
+            },
+        })
 
         var rent_period = [
             {

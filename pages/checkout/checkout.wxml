@@ -72,13 +72,15 @@
 
 </view>
 
-<view class="c-container">
 
-    <view>租客留言</view>
-
+<view class='footer'>
+    <view type="default" bindtap="calling">客服电话： (+86) {{info.tel.one}}</view>
+    <view type="default" bindtap="calling">客服电话： (+86) {{info.tel.two}}</view>
 </view>
 
 <view style='height:120rpx;'></view>
+
+
 
 <view class="cart">
 
@@ -86,9 +88,7 @@
         <view class="total">￥455</view>
     </view>
 
-    <form bindsubmit="formSubmit" report-submit="true">
-        <button formType="submit" bindtap="pay">
+    <button formType="submit" bindtap="makeOrder">
             立即预订
         </button>
-    </form>
 </view>

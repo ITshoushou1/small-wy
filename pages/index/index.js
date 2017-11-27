@@ -4,11 +4,10 @@ const app = getApp()
 
 Page({
     data: {
-        imgUrls: [
-            'https://img.neisha.cc/2017/11/17/2f71aa1771694a26b8ec34af57f8871c.jpg',
-            'https://img.neisha.cc/2017/11/20/34ff34e7410c4da3a2081a16a21394cb.jpg',
-            'https://img.neisha.cc/2017/11/20/075bb8af5743408ba8344e56769baa62.jpg'
-        ],
+        slideList: {},
+        hotList: {},
+        plist: {},
+        info:[],
         indicatorDots: true,
         autoplay: true,
         interval: 5000,
@@ -24,10 +23,7 @@ Page({
             { "navigator": "/pages/list/list?id=1", "title": "文本3", "imgurl": "https://img.neisha.cc/2017/5/13/dffc2d6bbf3645d9a4769f6edd2dd39d.jpg" },
             { "navigator": "/pages/list/list?id=1", "title": "文本4", "imgurl": "https://img.neisha.cc/2017/5/13/9c2c399b68b24d54a9211b9da02a14f9.jpg" },
         ],
-        list: [
-            { "courseId": 1, "avatar": "https://img.neisha.cc/2017/9/1/ea6a450d0fb847cca77dfce8540f58a1.jpg@80p", "title": "标题", "startTime": 'fsdfsdfsd', "period": '5个月', "price": '4545' },
-            { "courseId": 2, "avatar": "https://img.neisha.cc/2017/9/1/ea6a450d0fb847cca77dfce8540f58a1.jpg@80p", "title": "标题", "startTime": 'fsdfsdfsd', "period": '5个月', "price": '4545' },
-        ], 
+        plist: {}, 
     },
 
     imageLoad: function (e) {
@@ -59,6 +55,70 @@ Page({
         })
     },
     onLoad: function () {
+
+        var that = this;
+
+        wx.showLoading({
+            title: '加载中...',
+        })
+
+        wx.request({
+            url: 'https://m.zhiteer.com/api/home/slide',
+            success: function(res) {
+                console.log(res.data.data.list)
+                that.setData({
+                    slideList:res.data.data.list
+                })
+                that.slideList = res.data.data.list
+            },
+        })
+
+
+        wx.request({
+            url: 'https://m.zhiteer.com/api/home/plist',
+            success: function (res) {
+                console.log(res.data.data.list)
+                that.setData({
+                    plist: res.data.data.list
+                })
+                that.plist = res.data.data.list
+            },
+        })
+
+        wx.request({
+            url: 'https://m.zhiteer.com/api/home/hot',
+            success: function(res) {
+                console.log(res.data.data.list)
+                that.setData({
+                    hotList:res.data.data.list
+                })
+                that.hotList = res.data.data.list
+            },
+        })
+
+        wx.request({
+            url: 'https://m.zhiteer.com/api/home/plist',
+            success: function(res) {
+                console.log(res.data.data.list)
+                that.setData({
+                    plist:res.data.data.list
+                })
+                that.plist = res.data.data.list
+            },
+        })
+
+        wx.request({
+            url: 'https://m.zhiteer.com/api/home/info',
+            success: function(res) {
+                console.log(res.data.data)
+                that.setData({
+                    info:res.data.data
+                })
+                that.info = res.data.data
+            },
+        })
+
+        wx.hideLoading();
         // if (app.globalData.userInfo) {
         //   this.setData({
         //     userInfo: app.globalData.userInfo,
