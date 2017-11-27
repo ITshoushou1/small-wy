@@ -41,7 +41,9 @@
 
         <view class='center'>
         
-            <view>进入订单中心</view>
+            <navigator url='/pages/user/user' open-type='navigate'>
+                进入订单中心
+            </navigator>
 
         </view>
 

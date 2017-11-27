@@ -38,7 +38,7 @@ page {
 
 .order-detail .list {
     padding: 10rpx;
-    font-size: 30rpx;
+    font-size: 28rpx;
     color: #888888;
     display: flex;
     justify-content: space-between;
@@ -50,3 +50,9 @@ page {
     padding-top: 20rpx;
 }
 
+.center navigator {
+    display: block;
+    height: 50rpx;
+    margin: 10rpx;
+    padding-top: 10rpx;
+}
