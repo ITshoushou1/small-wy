@@ -1,2 +1,50 @@
 <!--pages/success/success.wxml-->
-<text>pages/success/success.wxml</text>
+
+<view class='s-body' style='padding:50rpx;'>
+    <view class='s-contianer'>
+
+        <view class='success-tips'>
+            <view class='img'>
+                <image src='../../images/success.png'></image>
+            </view>
+            <view class='pay-status'>支付成功</view>
+            <view class='pay-tips'>我们将尽快为您安排发货</view>
+        </view>
+
+        <view class='order-detail'>
+            <view class='list'>
+                <view>订单号</view>
+                <view>4236474747</view>
+            </view>
+
+            <view class='list'>
+                <view>收件人</view>
+                <view>杨东升</view>
+            </view>
+
+            <view class='list'>
+                <view>联系电话</view>
+                <view>134452312324</view>
+            </view>
+
+            <view class='list'>
+                <view>收货地址</view>
+                <view>海珠区</view>
+            </view>
+
+            <view class='list'>
+                <view>订单金额</view>
+                <view>￥434</view>
+            </view>
+
+        </view>
+
+        <view class='center'>
+        
+            <view>进入订单中心</view>
+
+        </view>
+
+
+    </view>
+</view>

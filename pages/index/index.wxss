@@ -25,7 +25,7 @@ page {
 
 .nav-item {
     margin: 30rpx 50rpx 10rpx;
-    width: 100rpx;
+    width: 80rpx;
 }
 
 .nav-item image {
@@ -35,7 +35,7 @@ page {
 }
 
 .nav-item text {
-    width: 80rpx;
+    width: 120rpx;
     font-size: 24rpx;
     color: #000;
     display: inline-block;
