@@ -137,7 +137,7 @@ Page({
                     product: res.data.data.info,
                     rent_price: res.data.data.info.rent_price,
                     rent_price_rate: res.data.data.info.rent_price_rate,
-                    current_period: res.data.data.info.rent_period,
+                    current_period: res.data.data.info.rent_month,
                     rent_price_per_month: res.data.data.info.rent_price_per_month,
                     priceMonthSheet: res.data.data.priceMonthSheet
                 })
