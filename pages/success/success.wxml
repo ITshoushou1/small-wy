@@ -27,25 +27,27 @@
                 <view>134452312324</view>
             </view>
 
-            <view class='list'>
-                <view>收货地址</view>
-                <view>海珠区</view>
-            </view>
 
             <view class='list'>
                 <view>订单金额</view>
                 <view>￥434</view>
             </view>
 
+
+            <view class='list'>
+                <view>收货地址</view>
+                <view>海珠区海珠区海珠区海珠区</view>
+            </view>
+
         </view>
 
-        <view class='center'>
+        <!-- <view class='center'>
         
             <navigator url='/pages/user/user' open-type='navigate'>
                 进入订单中心
             </navigator>
 
-        </view>
+        </view> -->
 
 
     </view>

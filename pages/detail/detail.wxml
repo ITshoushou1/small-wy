@@ -1,11 +1,12 @@
 <!--pages/detail/detail.wxml-->
- <swiper class='swiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="bindchange">
+
+<swiper class='swiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="bindchange">
     <block wx:for="{{product.gallerys}}" wx:for-item="item" wx:key="item.id">
         <swiper-item>
-            <image src="{{item}}" class="slide-image" indload="imageLoad" style="height: {{imgheight}}rpx;width:{{imgwidth}}rpx;" />
+            <image src="{{item}}" class="slide-image" />
         </swiper-item>
     </block>
-</swiper> 
+</swiper>
 
 <view class='p-container'>
 
@@ -16,15 +17,15 @@
 
             <view class='per-price'>
                 <view class='price'>￥
-                    <view class='b'>19.1</view> / 月</view>
-                <view class='desc'>租期满12个月，租金低至 19元/月</view>
+                    <view class='b'> {{rent_price_per_month}} </view> / 月</view>
+                <view class='desc'>租期满{{product.rent_month}}个月，租金低至 {{product.rent_price_per_month}}元/月</view>
             </view>
 
             <view class='sub-total'>
-                <view class='p-text'>12个个 </view>
+                <view class='p-text'>{{current_period}}个月</view>
                 <view class='sub-total-text'> 小计： </view>
-                <view class='sub-total-price'>￥3333</view>
-                <view class='p-red'> 租期开始日期从设备签收日起 </view>
+                <view class='sub-total-price'>￥{{rent_price}}</view>
+                <view class='p-red'> 租赁时间越长，租金越低 </view>
             </view>
 
         </view>
@@ -32,15 +33,15 @@
         <view class='p-period'>
             <view class='tips'>请选择租期：</view>
             <view class='p-radio'>
-                
+
                 <view class='month' wx:for="{{rent_period}}" wx:for-item="period" wx:key="key" wx:for-index="idx" data-idx="{{idx}}">
-                    
+
                     <view class="month-text {{current_period == period.value ? 'active' : ''}}" data-period="{{period.value}}" bindtap="bindChangePeriod">{{period.tab_title}}</view>
 
                 </view>
-            
+
             </view>
-            <view class='tips p-red'>fsdfsd</view>
+            <view class='tips p-red'>租期开始日期从设备签收日起</view>
         </view>
     </view>
 
@@ -55,22 +56,83 @@
 
     <!-- 流程 -->
     <scroll-view class="p-container {{currentNavbar==0 ? '' : 'hidden'}}" scroll-y="true" bindscrolltolower="pullUpLoad" style="height: {{systemInfo.windowHeight}}px;">
-        <view>流程</view>
-        <view>流程</view>
-        <view>流程</view>
-        <view>流程</view><view>流程</view><view>流程</view><view>流程</view><view>流程</view><view>流程</view><view>流程</view>
+
+        <view class='process'>
+
+            <view class='title'>1 选定租期</view>
+            <view class='desc'>建议至少提前7天下单 </view>
+
+        </view>
+
+        <view class='process'>
+
+            <view class='title'>
+                2 提交预定信息
+            </view>
+            <view class='desc'>客户联系，预订成功 </view>
+
+        </view>
+
+        <view class='process'>
+
+            <view class='title'>
+                3 租期计算
+            </view>
+            <view class='desc'>
+                收到设备第二天租期开始，设备发出日期截止
+            </view>
+
+        </view>
+
+        <view class='process'>
+
+            <view class='title'>
+                4 收货验机
+            </view>
+            <view class='desc'>
+                收到设备,检查设备是否完好,根据配置清单核对配件
+            </view>
+
+        </view>
+
+        <view class='process'>
+
+            <view class='title'>
+                5 设备返还
+            </view>
+            <view class='desc'>
+                租赁截止日期,自付运费发顺丰快递.按收货时的包装方式寄回
+            </view>
+
+        </view>
+
+        <view class='process'>
+
+            <view class='title'>
+                6 退还押金
+            </view>
+            <view class='desc'>
+                收到设备,确认设备正常及完好,预计7天内退还押金,节假日顺延
+            </view>
+
+        </view>
 
         <view></view>
     </scroll-view>
 
     <!-- 详情 -->
     <scroll-view class="p-container {{currentNavbar==1 ? '' : 'hidden'}}" style="height: {{systemInfo.windowHeight}}px;" scroll-y="true" bindscrolltolower="pullUpLoadLatest">
-        <view>详情</view>
+        <view>
+            <import src="../../wxParse/wxParse.wxml" />
+            <view class="wxParse">
+                <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+            </view>
+        </view>
     </scroll-view>
 
     <!-- 评论 -->
     <scroll-view class="p-container {{currentNavbar==2 ? '' : 'hidden'}}" style="height: {{systemInfo.windowHeight}}px;" scroll-y="true" bindscrolltolower="pullUpLoadLatest">
-        <view>评论</view>
+        <view style="height: 300rpx;padding:20rpx;">暂无用户评论</view>
     </scroll-view>
 
 
@@ -79,7 +141,7 @@
 <view style='height:120rpx;'></view>
 
 <view class="cart">
-    
+
     <view class="data">
         <view class="total">￥455</view>
     </view>

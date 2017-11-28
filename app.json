@@ -6,7 +6,8 @@
         "pages/detail/detail",
         "pages/checkout/checkout",
         "pages/list/list",
-        "pages/success/success"
+        "pages/success/success",
+        "pages/test/test"
     ],
     "window": {
         "backgroundTextStyle": "light",

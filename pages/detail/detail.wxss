@@ -1,5 +1,7 @@
 /* pages/detail/detail.wxss */
 
+@import "/wxParse/wxParse.wxss";
+
 page {
     display: block;
     min-height: 100%;
@@ -8,7 +10,12 @@ page {
 
 .swiper {
     width: 100%;
-    height: 450rpx;
+    height: 700rpx;
+}
+
+.slide-image {
+    width: 100%;
+    height: 100%;
 }
 
 /*navbar  */
@@ -221,3 +228,21 @@ page {
 }
 
 /*/end  */
+
+/* process  */
+
+.process {
+    padding: 10rpx 10rpx 20rpx 40rpx;
+    font-size: 28rpx;
+}
+
+.process .title {
+    padding-bottom: 10rpx;
+}
+
+.process .desc {
+    font-size: 24rpx;
+    color: #888888;
+}
+
+/* /end  */

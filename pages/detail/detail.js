@@ -1,4 +1,7 @@
 // pages/detail/detail.js
+
+var WxParse = require('../../wxParse/wxParse.js');
+
 Page({
 
     /**
@@ -29,6 +32,9 @@ Page({
 
         rent_period: [],
         current_period: 12,
+        rent_price: 999,
+        rent_price_rate: 1, // 租金计算比率
+        rent_price_per_month: 99, // 单价
     },
 
     imageLoad: function (e) {
@@ -67,19 +73,25 @@ Page({
 
         setTimeout(function () {
             wx.hideLoading()
-        }, 1000)
+        }, 500)
 
         console.log(e.currentTarget.dataset.idx)
         this.setData({
             currentNavbar: e.currentTarget.dataset.idx
         })
+        
     },
 
     bindChangePeriod: function (e) {
         var period = e.target.dataset.period
+        var rent_price = 1111;
+
         console.log(period)
+        console.log(rent_price)
+
         this.setData({
-            current_period: e.target.dataset.period
+            current_period: e.target.dataset.period,
+            rent_price: rent_price
         })
     },
 
@@ -90,17 +102,17 @@ Page({
 
         var that = this;
 
+        wx.showLoading({
+            title: '加载中',
+        })
+
+        //加载内容
+
         this.setData({
             product_sn: options.product_sn
         })
 
         console.log(options.product_sn)
-
-        var product = {
-            product_sn: 'sefsgsdfsdfsd',
-            product_title: "商品商品发士大夫士大夫大师傅士大夫士大夫",
-            select_period: 5
-        }
 
         wx.request({
             url: 'https://m.zhiteer.com/api/product/detail',
@@ -108,10 +120,25 @@ Page({
                 product_sn: options.product_sn
             },
             success: function(res) {
+
                 console.log(res.data.data)
+
                 that.setData({
                     product:res.data.data.info
                 })
+
+                var article = res.data.data.info.description.description
+
+                WxParse.wxParse('article', 'markdown', article, that, 5);
+
+                that.setData({
+                    product: res.data.data.info,
+                    rent_price: res.data.data.info.rent_price,
+                    rent_price_rate: res.data.data.info.rent_price_rate,
+                    current_period: res.data.data.info.rent_period,
+                    rent_price_per_month: res.data.data.info.rent_price_per_month,
+                })
+
             },
         })
 
@@ -149,11 +176,16 @@ Page({
         ]
 
         this.setData({
-            product: product,
+            
             rent_period: rent_period,
-            current_period: product.select_period
+            
         })
 
+
+        setTimeout(function () {
+            wx.hideLoading()
+        }, 500)
+        
     },
 
     /**
@@ -207,8 +239,8 @@ Page({
             console.log(res.target)
         }
         return {
-            title: '自定义转发标题',
-            path: '/page/detail/detail?id=123',
+            title: this.data.product.product_title,
+            path: '/page/detail/detail?product_sn=' + this.data.product.product_sn,
             success: function (res) {
                 // 转发成功
             },
