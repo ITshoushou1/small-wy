@@ -41,7 +41,7 @@
                 </view>
 
             </view>
-            <view class='tips p-red'>租期开始日期从设备签收日起</view>
+            <view class='period-tips'>租期开始日期从设备签收日起</view>
         </view>
     </view>
 
@@ -143,7 +143,7 @@
 <view class="cart">
 
     <view class="data">
-        <view class="total">￥455</view>
+        <view class="total">￥ {{rent_price}} </view>
     </view>
 
     <form bindsubmit="formSubmit" report-submit="true">

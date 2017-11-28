@@ -1,7 +1,5 @@
-<!--index.wxml-->
 <view style='height:10rpx;'></view>
 <view class="c-container">
-
     <view class="address-box" style='background: url(images/arrow-right.png) no-repeat 705rpx center,url(images/addr-line.png) no-repeat center bottom;background-size: 16rpx auto, 750rpx auto;'>
         <view wx:if="{{!hasAddress}}" class="add-address">
             <view class="title" bindtap="bindUserAddress" style='background: url(images/ico-add-addr.png) no-repeat left center; background-size: 60rpx auto;'>选择收货地址</view>
@@ -11,19 +9,15 @@
             <view class="addr-text">{{address.provinceName}}{{address.cityName}} {{address.detailInfo}}</view>
         </view>
     </view>
-
 </view>
 
 <view class="c-container">
-
     <view class='relet-title'>
         续租月租金按此单月租金计算：
     </view>
-
     <view class='relet-desc'>
         续租，如因合同到期用户还想继续使用甲方的产品，租金的计算是以租期超过当前档期则使用下一档期的租金。
     </view>
-
 </view>
 
 <view class="c-container">
@@ -48,47 +42,33 @@
             </view>
         </view>
     </view>
-
-    
-
 </view>
 
 <view class="c-container">
-
     <view class='line-tab'>
         <view class='line-left'>租金</view>
         <view class='line-right'>￥500</view>
     </view>
-
     <view class='line-tab'>
         <view class='line-left'>押金</view>
         <view class='line-right'>￥500</view>
     </view>
-
     <view class='line-tab sub-total'>
         <view class='line-left'>总计</view>
         <view class='line-right'>￥123232</view>
     </view>
-
 </view>
-
 
 <view class='footer'>
     <view type="default" bindtap="calling">客服电话： (+86) {{info.tel.one}}</view>
     <view type="default" bindtap="calling">客服电话： (+86) {{info.tel.two}}</view>
 </view>
-
 <view style='height:120rpx;'></view>
-
-
-
 <view class="cart">
-
     <view class="data">
         <view class="total">￥455</view>
     </view>
-
     <button formType="submit" bindtap="makeOrder">
-            立即预订
-        </button>
+        立即预订
+    </button>
 </view>

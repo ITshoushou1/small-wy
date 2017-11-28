@@ -7,19 +7,19 @@ Page({
         hasAddress: false,
         address: [],
         test: '',
-        goodsList: [
-            {
-                'product_title': '方法大师傅大师傅士大夫232134552士大夫发射点犯得上犯得上反对大师傅大师傅士大夫顶顶顶',
-                'product_price': '19.0',
-                'rent_period': 12,
-                'pic': 'http://imgcdn.zhiteer.com/images/products/e3bcd0348d9a07bb695b19d7297a3177.jpeg?imageView2/0/w/300'
-            },
-
-        ],
+        goodsList: [],
         rent_period: 12,
         product_sn: '',
         leave_message: '',
-        isCheckButton:false,
+        isCheckButton: false,
+
+        rent_period: [],
+        current_period: 12,
+        rent_price: 999,
+        rent_price_rate: 1, // 租金计算比率
+        rent_price_per_month: 99, // 单价
+        priceMonthSheet: [], // 标价
+
     },
     //事件处理函数
     bindViewTap: function () {
@@ -71,11 +71,80 @@ Page({
 
     onLoad: function (options) {
     
-        this.setData({
-            rent_period: options.rent_period,
-            product_sn: options.product_sn,
-            leave_message: options.leave_message,
+        var that = this;
+
+        wx.showLoading({
+            title: '加载中',
         })
+
+        //加载内容
+
+        this.setData({
+            product_sn: options.product_sn
+        })
+
+        console.log(options.product_sn)
+
+        wx.request({
+            url: 'https://m.zhiteer.com/api/product/detail',
+            data: {
+                product_sn: options.product_sn
+            },
+            success: function (res) {
+
+                console.log([res.data.data.info])
+
+                that.setData({
+                    product: res.data.data.info
+                })
+
+                that.setData({
+                    goodList: [res.data.data.info],
+                    rent_price: res.data.data.info.rent_price,
+                    rent_price_rate: res.data.data.info.rent_price_rate,
+                    current_period: res.data.data.info.rent_period,
+                    rent_price_per_month: res.data.data.info.rent_price_per_month,
+                    priceMonthSheet: res.data.data.priceMonthSheet
+                })
+
+            },
+        })
+
+        var rent_period = [
+            {
+                tab_title: '1个月',
+                value: 1,
+            },
+            {
+                tab_title: '2个月',
+                value: 2,
+            },
+            {
+                tab_title: '3个月',
+                value: 3,
+            },
+            {
+                tab_title: '5个月',
+                value: 5,
+            },
+            {
+                tab_title: '6个月',
+                value: 6,
+            },
+            {
+                tab_title: '12个月',
+                value: 12,
+            },
+        ]
+
+        this.setData({
+            rent_period: rent_period,
+        })
+
+        setTimeout(function () {
+            wx.hideLoading()
+        }, 500)
+
     },
 
     getUserInfo: function (e) {

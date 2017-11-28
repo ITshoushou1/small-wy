@@ -199,6 +199,12 @@ page {
     padding-bottom: 4rpx;
 }
 
+.period-tips {
+    padding-top: 10rpx;
+    color: #f45044;
+    font-size: 26rpx;
+}
+
 .p-radio {
     display: flex;
 }

@@ -270,7 +270,7 @@ page {
 }
 
 .line-tab {
-    padding:10rpx;
+    padding: 20rpx 10rpx 20rpx 10rpx;
     display: flex;
     font-size: 28rpx;
     justify-content: space-between;

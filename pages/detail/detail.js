@@ -35,6 +35,7 @@ Page({
         rent_price: 999,
         rent_price_rate: 1, // 租金计算比率
         rent_price_per_month: 99, // 单价
+        priceMonthSheet: [], // 标价
     },
 
     imageLoad: function (e) {
@@ -84,14 +85,15 @@ Page({
 
     bindChangePeriod: function (e) {
         var period = e.target.dataset.period
-        var rent_price = 1111;
+        var rent_price = this.data.rent_price_rate * period * this.data.priceMonthSheet[period];
 
         console.log(period)
         console.log(rent_price)
 
         this.setData({
             current_period: e.target.dataset.period,
-            rent_price: rent_price
+            rent_price: rent_price,
+            rent_price_per_month: this.data.priceMonthSheet[period],
         })
     },
 
@@ -137,6 +139,7 @@ Page({
                     rent_price_rate: res.data.data.info.rent_price_rate,
                     current_period: res.data.data.info.rent_period,
                     rent_price_per_month: res.data.data.info.rent_price_per_month,
+                    priceMonthSheet: res.data.data.priceMonthSheet
                 })
 
             },
@@ -146,41 +149,32 @@ Page({
             {
                 tab_title: '1个月',
                 value: 1,
-                selected: false
             },
             {
                 tab_title: '2个月',
                 value: 2,                
-                selected: false
             },
             {
                 tab_title: '3个月',
                 value: 3,                
-                selected: false
             },
             {
                 tab_title: '5个月',
                 value: 5,     
-                selected: false
             },
             {
                 tab_title: '6个月',
                 value: 6,     
-                selected: false
             },
             {
                 tab_title: '12个月',
                 value: 12,     
-                selected: false
             },
         ]
 
         this.setData({
-            
             rent_period: rent_period,
-            
         })
-
 
         setTimeout(function () {
             wx.hideLoading()
