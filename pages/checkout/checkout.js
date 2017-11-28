@@ -12,13 +12,11 @@ Page({
         product_sn: '',
         leave_message: '',
         isCheckButton: false,
-
-        rent_period: [],
-        current_period: 12,
+        
         rent_price: 999,
-        rent_price_rate: 1, // 租金计算比率
         rent_price_per_month: 99, // 单价
-        priceMonthSheet: [], // 标价
+        total_price: 999, //总金额
+        product: [],
 
     },
     //事件处理函数
@@ -80,8 +78,18 @@ Page({
         //加载内容
 
         this.setData({
-            product_sn: options.product_sn
+            product_sn: options.product_sn,
+            rent_period: options.rent_period
         })
+        
+        if (options.rent_period == 'undefined') {
+            this.setData({
+                product_sn: options.product_sn,
+                rent_period: 12
+            })
+        }
+
+        var rent_period = that.data.rent_period;
 
         console.log(options.product_sn)
 
@@ -92,54 +100,28 @@ Page({
             },
             success: function (res) {
 
-                console.log([res.data.data.info])
+                console.log(res.data.data.info)
 
                 that.setData({
                     product: res.data.data.info
                 })
 
+                var rent_price = res.data.data.priceMonthSheet[rent_period] * rent_period;
+                var total_price = res.data.data.info.deposit_price + rent_price;
+
+                console.log(res.data.data.priceMonthSheet[rent_period])
+
                 that.setData({
-                    goodList: [res.data.data.info],
-                    rent_price: res.data.data.info.rent_price,
-                    rent_price_rate: res.data.data.info.rent_price_rate,
-                    current_period: res.data.data.info.rent_period,
-                    rent_price_per_month: res.data.data.info.rent_price_per_month,
-                    priceMonthSheet: res.data.data.priceMonthSheet
+                    product: res.data.data.info,
+                    rent_price: rent_price,
+                    rent_price_per_month: res.data.data.priceMonthSheet[options.rent_period],
+                    total_price: total_price
                 })
 
             },
         })
 
-        var rent_period = [
-            {
-                tab_title: '1个月',
-                value: 1,
-            },
-            {
-                tab_title: '2个月',
-                value: 2,
-            },
-            {
-                tab_title: '3个月',
-                value: 3,
-            },
-            {
-                tab_title: '5个月',
-                value: 5,
-            },
-            {
-                tab_title: '6个月',
-                value: 6,
-            },
-            {
-                tab_title: '12个月',
-                value: 12,
-            },
-        ]
-
-        this.setData({
-            rent_period: rent_period,
-        })
+        console.log(that.data.rent_price)
 
         setTimeout(function () {
             wx.hideLoading()

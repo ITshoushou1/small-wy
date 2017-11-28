@@ -1,4 +1,5 @@
 <view style='height:10rpx;'></view>
+
 <view class="c-container">
     <view class="address-box" style='background: url(images/arrow-right.png) no-repeat 705rpx center,url(images/addr-line.png) no-repeat center bottom;background-size: 16rpx auto, 750rpx auto;'>
         <view wx:if="{{!hasAddress}}" class="add-address">
@@ -25,19 +26,19 @@
     <view class="goods-list">
         <view class="list-title">
             <view class='t-left'>租期从签订合同开始计算</view>
-            <view class='t-right'>共12个月</view>
+            <view class='t-right'>共{{rent_period}}个月</view>
         </view>
-        <view class="a-goods" wx:for-items="{{goodsList}}" wx:key="{{index}}">
+        <view class="a-goods">
             <view class="img-box">
-                <image src="{{item.pic}}" class="img" />
+                <image src="{{product.thumb}}" class="img" />
             </view>
             <view class="text-box">
                 <view class="arow arow01">
-                    <view class="goods-name">{{item.product_title}}</view>
+                    <view class="goods-name">{{product.product_title}}</view>
                 </view>
                 <view class="arow">
-                    <view class="goods-label">￥19 / 月{{item.label}}</view>
-                    <view class="goods-num">x {{item.number}}1</view>
+                    <view class="goods-label">￥ {{rent_price_per_month}} / {{product.rent_type_name}}</view>
+                    <view class="goods-num">x 1</view>
                 </view>
             </view>
         </view>
@@ -47,15 +48,15 @@
 <view class="c-container">
     <view class='line-tab'>
         <view class='line-left'>租金</view>
-        <view class='line-right'>￥500</view>
+        <view class='line-right'>￥ {{rent_price}} </view>
     </view>
     <view class='line-tab'>
         <view class='line-left'>押金</view>
-        <view class='line-right'>￥500</view>
+        <view class='line-right'>￥{{product.deposit_price}}</view>
     </view>
     <view class='line-tab sub-total'>
         <view class='line-left'>总计</view>
-        <view class='line-right'>￥123232</view>
+        <view class='line-right'>￥{{total_price}}</view>
     </view>
 </view>
 
@@ -63,10 +64,11 @@
     <view type="default" bindtap="calling">客服电话： (+86) {{info.tel.one}}</view>
     <view type="default" bindtap="calling">客服电话： (+86) {{info.tel.two}}</view>
 </view>
+
 <view style='height:120rpx;'></view>
 <view class="cart">
     <view class="data">
-        <view class="total">￥455</view>
+        <view class="total">￥{{total_price}}</view>
     </view>
     <button formType="submit" bindtap="makeOrder">
         立即预订

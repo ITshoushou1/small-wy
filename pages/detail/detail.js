@@ -91,7 +91,7 @@ Page({
         console.log(rent_price)
 
         this.setData({
-            current_period: e.target.dataset.period,
+            current_period: period,
             rent_price: rent_price,
             rent_price_per_month: this.data.priceMonthSheet[period],
         })
